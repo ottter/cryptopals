@@ -53,10 +53,10 @@ def single_byte_xor(input_value):
 
 def single_byte_xor_2():
     """Set 1, Challenge 4
-       One of the 60-character strings in set1-chal4.txt has been encrypted by single-character XOR."""
+       One of the 60-character strings in set1chal4.txt has been encrypted by single-character XOR."""
     # Trying to not use functions was an awful idea. being stubborn about it was worse
     results = []
-    input_str = [line.strip() for line in open('set1-chal4.txt', 'r')]
+    input_str = [line.strip() for line in open('set1chal4.txt', 'r')]
     for result in input_str:
         output = single_byte_xor(result)
         results.append(output)
@@ -73,7 +73,7 @@ def single_byte_xor_2():
 # fixed_xor('1c0111001f010100061a024b53535009181c')
 
 ### Set 1, Challenge 3
-# print(single_byte_xor("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
+print(single_byte_xor("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
 # This one is kind of ugly because I wanted to do it all in one function and then had to repurpose it for 01.04
 
 ### Set 1, Challenge 4

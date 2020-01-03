@@ -3,12 +3,11 @@ key = b"ICE"
 
 def repeating_key_xor():
     """Set 1, Challenge 4
-       Encrypt it, under the key "ICE", using repeating-key XOR"""
+       Encrypt the stanza, under the key "ICE", using repeating-key XOR"""
     cipher = b''
     i = 0
     for byte in input_byte:
         cipher += bytes([byte ^ key[i]])
-
         if i < len(key) - 1:
             i = i + 1
         else:
