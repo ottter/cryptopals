@@ -73,12 +73,11 @@ def single_byte_xor(cipher):
     return sorted(potential_messages, key=lambda x: x['score'], reverse=True)[0]
 
 def break_repeating_key_xor(cipher):
-    """ Break the Vigenere cipher, or repeating key XOR"""
+    """Break the Vigenere cipher, or repeating key XOR"""
     average_distances = []
 
     for key_size in KEY_SIZE:
-        # Hamming Distance list
-        distances = []
+        distances = []  # Hamming Distance
 
         blocks = [cipher[i:i + key_size] for i in range(0, len(cipher), key_size)]
 
@@ -122,7 +121,7 @@ def main():
     # hamming_test = hamming_distance(b'this is a test', b'wokka wokka!!!')
     # print(f"Your test input's Hamming Distance is: {hamming_test}")
 
-    with open("set1chal6.txt", "r") as input_file:
+    with open("repeating-key-zor-ciphertext.txt", "r") as input_file:
         cipher_text = b64decode(input_file.read())
         result, key = break_repeating_key_xor(cipher_text)
         print(f"key: {key}\nplaintext: {result}")
