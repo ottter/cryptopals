@@ -2,7 +2,7 @@ input_byte = b"Burning 'em, if you ain't quick and nimble\nI go crazy when I hea
 key = b"ICE"
 
 def repeating_key_xor():
-    """Set 1, Challenge 4
+    """Set 1, Challenge 5
        Encrypt the stanza, under the key "ICE", using repeating-key XOR"""
     cipher = b''
     i = 0

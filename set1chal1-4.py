@@ -57,10 +57,13 @@ def single_byte_xor_2():
     # Trying to not use functions was an awful idea. being stubborn about it was worse
     results = []
     input_str = [line.strip() for line in open('set1chal4.txt', 'r')]
+
     for result in input_str:
         output = single_byte_xor(result)
         results.append(output)
+
     results = (sorted(results, key=lambda c: c['score'], reverse=True))
+
     for result in list(results)[0:1]:
         print(f'Score:{result["score"]}\t Output: {result["result"]}')
 
@@ -73,8 +76,8 @@ def single_byte_xor_2():
 # fixed_xor('1c0111001f010100061a024b53535009181c')
 
 ### Set 1, Challenge 3
-print(single_byte_xor("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
+# print(single_byte_xor("1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"))
 # This one is kind of ugly because I wanted to do it all in one function and then had to repurpose it for 01.04
 
 ### Set 1, Challenge 4
-# single_byte_xor_2()
+single_byte_xor_2()
