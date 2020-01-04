@@ -10,9 +10,9 @@ from base64 import b64decode
 KEY_SIZE = range(2, 41)
 
 # Source: Wikipedia. Dict found on SO. I added the space (Wiki said its more common than 'E'
-LETTER_FREQ = {'E': 12.70, 'T': 9.06, 'A': 8.17, 'O': 7.51, 'I': 6.97, 'N': 6.75, 'S': 6.33, 'H': 6.09, 'R': 5.99,
+LETTER_FREQ = {'E': 12.7, 'T': 9.06, 'A': 8.17, 'O': 7.51, 'I': 6.97, 'N': 6.75, 'S': 6.33, 'H': 6.09, 'R': 5.99,
                'D': 4.25, 'L': 4.03, 'C': 2.78, 'U': 2.76, 'M': 2.41, 'W': 2.36, 'F': 2.23, 'G': 2.02, 'Y': 1.97,
-               'P': 1.93, 'B': 1.29, 'V': 0.98, 'K': 0.77, 'J': 0.15, 'X': 0.15, 'Q': 0.10, 'Z': 0.07, ' ': 14}
+               'P': 1.93, 'B': 1.29, 'V': 0.98, 'K': 0.77, 'J': 0.15, 'X': 0.15, 'Q': 0.10, 'Z': 0.07, ' ': 14.0}
 
 def hamming_distance(ham1, ham2):
     """The Hamming distance is the total number of differing bits between two equal length strings"""
@@ -81,18 +81,15 @@ def break_repeating_key_xor(cipher):
 
         blocks = [cipher[i:i + key_size] for i in range(0, len(cipher), key_size)]
 
-        while True:
-            try:
-                block_1 = blocks[0]
-                block_2 = blocks[1]
-                distance = hamming_distance(block_1, block_2)
+        # for loop is .1 seconds faster than while true here
+        for block in blocks:
+            block_1 = blocks[0]
+            block_2 = blocks[1]
 
-                distances.append(distance / key_size)
+            distance = hamming_distance(block_1, block_2)
+            distances.append(distance / key_size)
 
-                del blocks[0:1]
-
-            except Exception as err:
-                break
+            del blocks[0:1]
 
         result = {'key': key_size, 'average distance': sum(distances) / len(distances)}
         average_distances.append(result)
@@ -124,6 +121,7 @@ def main():
     with open("repeating-key-zor-ciphertext.txt", "r") as input_file:
         cipher_text = b64decode(input_file.read())
         result, key = break_repeating_key_xor(cipher_text)
+
         print(f"key: {key}\nplaintext: {result}")
 
 if __name__ == "__main__":
