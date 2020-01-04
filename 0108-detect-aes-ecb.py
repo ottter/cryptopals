@@ -18,13 +18,13 @@ def duplicate_blocks(cipher_text):
         return result
 
 def main():
-    cipher_text = [bytes.fromhex(cipher.strip()) for cipher in open('detect-aes-ecb-ciphertext.txt', 'r')]
+    cipher_text = [bytes.fromhex(cipher.strip()) for cipher in open('0108-detect-aes-ecb-ciphertext.txt', 'r')]
     # Cipher text is in hex I need to convert it to bytes
 
     duplicates = [duplicate_blocks(cipher) for cipher in cipher_text]
     sorted_duplicates = sorted(duplicates, key=lambda x: x['duplicates'], reverse=True)[0]
     print(f"DUPLICATES: {sorted_duplicates['duplicates']}\nCIPHER_TEXT: {sorted_duplicates['cipher_text']}")
-    # TODO: Find out why I couldn't get single-byte-xor.py method of sorting working with this challenge
+    # TODO: Find out why I couldn't get 0104-single-byte-xor.py method of sorting working with this challenge
 
 if __name__ == "__main__":
     main()

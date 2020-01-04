@@ -53,10 +53,10 @@ def single_byte_xor(input_value):
 
 def single_byte_xor_2():
     """Set 1, Challenge 4
-       One of the 60-character strings in single-byte-xor-ciphertext.txt has been encrypted by single-character XOR."""
+       One of the 60-character strings in 0104-single-byte-xor-ciphertext.txt has been encrypted by single-character XOR."""
     # Trying to not use functions was an awful idea. being stubborn about it was worse
     results = []
-    input_str = [line.strip() for line in open('single-byte-xor-ciphertext.txt', 'r')]
+    input_str = [line.strip() for line in open('0104-single-byte-xor-ciphertext.txt', 'r')]
 
     for result in input_str:
         output = single_byte_xor(result)

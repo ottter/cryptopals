@@ -20,7 +20,7 @@ def aes_ecb_decryption(cipher_text, key):
     return data
 
 def main():
-    with open('aes-ecb-mode-ciphertext.txt', 'rb') as input_file:
+    with open('0107-aes-ecb-mode-ciphertext.txt', 'rb') as input_file:
         cipher_text = b64decode(input_file.read())
     print(f'KEY: {KEY.decode()}\nPLAINT_TEXT: \n{aes_ecb_decryption(cipher_text, KEY).decode()}')
 
