@@ -118,11 +118,11 @@ def main():
     # hamming_test = hamming_distance(b'this is a test', b'wokka wokka!!!')
     # print(f"Your test input's Hamming Distance is: {hamming_test}")
 
-    with open("repeating-key-zor-ciphertext.txt", "r") as input_file:
+    with open("repeating-key-xor-ciphertext.txt", "r") as input_file:
         cipher_text = b64decode(input_file.read())
         result, key = break_repeating_key_xor(cipher_text)
 
-        print(f"key: {key}\nplaintext: {result}")
+        print(f"KEY:\n{key.decode()}\nPLAIN_TEXT:\n{result.decode()}")
 
 if __name__ == "__main__":
     main()

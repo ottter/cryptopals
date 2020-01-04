@@ -45,7 +45,7 @@ def single_byte_xor(input_value):
         result = {'score': int(score), 'result': output}
         results.append(result)
 
-    results = (sorted(results, key=lambda c: c['score'], reverse=True))
+    results = (sorted(results, key=lambda x: x['score'], reverse=True))
     # Outputs the top 5 results. Before adding space as a value, the correct answer was 5th
     for result in list(results)[0:1]:
         # print(f'Score:{result["score"]}\t Output: {result["result"]}')
@@ -65,7 +65,7 @@ def single_byte_xor_2():
     results = (sorted(results, key=lambda c: c['score'], reverse=True))
 
     for result in list(results)[0:1]:
-        print(f'Score:{result["score"]}\t Output: {result["result"]}')
+        print(f'Score:{result["score"]}\t Output: {result["result"].decode()}')
 
 ### To try yourself: uncomment the function call below and run
 
