@@ -14,6 +14,7 @@ PLAIN_TEXT = b"YELLOW SUBMARINE YELLOW SUBMARINE"
 
 BLOCK_SIZE = 20
 
+
 def pkcs7_padding(plain_text):
 
     for i in range(0, len(plain_text), BLOCK_SIZE):
@@ -33,8 +34,10 @@ def pkcs7_padding(plain_text):
             return padding
         print(block + padding)
 
+
 def main():
     pkcs7_padding(PLAIN_TEXT)
+
 
 if __name__ == "__main__":
     main()
